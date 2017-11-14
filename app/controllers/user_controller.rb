@@ -29,17 +29,21 @@ class UserController < ApplicationController
         session[:user_id] = @user.id
         redirect_to '/'
       else
-        flash[:notice] = "패스워드가 틀렸어요"
+        flash[:alert] = "패스워드가 틀렸어요"
         redirect_to '/user/login'
       end
     else
-      flash[:notice] = "그런 이메일의 유저가 없어"
+      flash[:alert] = "그런 이메일의 유저가 없어"
       redirect_to '/user/new'
     end
   end
   
   def logout
     session.clear
+    flash[:notice] = "로그아웃 되써염"
     redirect_to '/'
+  end
+  
+  def note
   end
 end

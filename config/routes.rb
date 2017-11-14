@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post 'user/login_process'
   
   get 'user/logout'
+  
+  get 'user/note'
 
   root 'post#index'
   
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   get 'post/new'
 
   get 'post/create'
-
+  
   get 'post/show/:id' => 'post#show'
 
   get 'post/create_comment/:id' => 'post#create_comment'

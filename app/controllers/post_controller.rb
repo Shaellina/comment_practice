@@ -9,7 +9,8 @@ class PostController < ApplicationController
   def create # 작성된 게시글 DB에 넣는 액션
     Post.create(
       title: params[:title],
-      content: params[:content]
+      content: params[:content],
+      user_id: session[:user_id]
     )
     redirect_to '/'
   end
@@ -21,7 +22,7 @@ class PostController < ApplicationController
   def create_comment # 해당하는 글에 댓글 다는 액션(show)
     Comment.create(
       content: params[:content],
-      post_id: params[:id]
+      post_id: params[:id],
     )
     redirect_to :back
   end
