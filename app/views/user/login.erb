@@ -1,0 +1,11 @@
+<h1>로그인</h1>
+<form action="/user/login_process" method="post"> 
+    이메일 : <input type="text" name="email"><br>
+    비밀번호 : <input type="text" name="password"><br>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token() %>">
+    <input type="submit" value="로그인">
+</form>
+
+<%= form_tag do %>
+  Form contents
+<% end %>
