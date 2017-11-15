@@ -1,4 +1,6 @@
 class PostController < ApplicationController
+  before_action(:find_post, only: [:show, :edit, :update, :destroy])
+  
   def index # 게시글 다 보여주는 페이지
     @posts = Post.all # [게시글1, 게시글2, 게시글3, ... ]
   end
@@ -16,7 +18,6 @@ class PostController < ApplicationController
   end
 
   def show # 1개의 게시글 보는 페이지
-    @post = Post.find(params[:id])
   end
 
   def create_comment # 해당하는 글에 댓글 다는 액션(show)
@@ -28,18 +29,24 @@ class PostController < ApplicationController
   end
   
   def edit
-    # render :nothing => true
-    @post = Post.find(params[:id])
   end
   
   def update
-    @post = Post.find(params[:id])
-    
     @post.update(
       title: params[:title],
       content: params[:content]
     )
     redirect_to "/post/show/#{@post.id}"
+  end
+  
+  def destroy
+    @post.destroy
+    redirect_to '/'
+  end
+  
+  private
+  def find_post
+    @post = Post.find(params[:id])
   end
   
 end

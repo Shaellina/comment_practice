@@ -1,0 +1,9 @@
+<h1>트위터 목록</h1>
+<% @tweets.each do |tweet| %>
+<p>
+    <%= tweet.content %>
+    <a href="/tweets/<%= tweet.id %>/edit">[수정]</a>
+    <%= link_to("[삭제]", "/tweets/#{ tweet.id }", method: "delete") %>
+</p>
+<% end %>
+<a href="/tweets/new">새로운 트윗 만들기</a>

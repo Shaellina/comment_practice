@@ -1,0 +1,12 @@
+<h1>트윗하기</h1>
+<form action="/tweets" method="post">
+    <input type="text" name="content">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit">
+</form>
+
+<!--<form action="/tweets" method="post">-->
+<!--    <input type="text" name="content">-->
+<!--    <input type="hidden" name="authenticity_token" value="<%#= form_authenticity_token %>">-->
+<!--    <input type="submit">-->
+<!--</form>-->

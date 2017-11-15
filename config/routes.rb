@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+  root 'tweets#index'
+
+  resources :tweets 
+  # get 'tweets/index'
+
+  # get 'tweets/new'
+  
+  # post 'tweets',{ :to => 'tweets#create'}
+  
+  # get 'tweets/:id/edit' => 'tweets#edit'
+  
+  # put 'tweets/:id' => 'tweets#update'
+  
+  # delete 'tweets/:id' => 'tweets#destroy'
+  
+  # get 'tweets', to: 'tweets#index'
+
+  #'tweets' => 'tweets#create'
+
+  get 'tweets/edit'
+
+  get 'tweets/update'
+
+  get 'tweets/destroy'
+
   resources :blogs
   
   # resources :tweets
@@ -16,8 +41,6 @@ Rails.application.routes.draw do
   get 'user/logout'
   
   get 'user/note'
-
-  root 'post#index'
   
   get 'post/index'
 
@@ -27,9 +50,11 @@ Rails.application.routes.draw do
   
   get 'post/edit/:id' => 'post#edit'
   
+  get 'post/destroy/:id' => 'post#destroy'
+  
   get 'post/update/:id' => 'post#update'
   
-  get 'post/show/:id' => 'post#show'
+  get 'post/show/:id/' => 'post#show'
 
   get 'post/create_comment/:id' => 'post#create_comment'
 

@@ -18,6 +18,7 @@ class BlogsController < ApplicationController
   end
 
   # GET /blogs/1/edit
+  # 우리가 만든 라우팅 : /tweets/1/edit
   def edit
   end
 
