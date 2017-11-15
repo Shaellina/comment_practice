@@ -26,4 +26,20 @@ class PostController < ApplicationController
     )
     redirect_to :back
   end
+  
+  def edit
+    # render :nothing => true
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    
+    @post.update(
+      title: params[:title],
+      content: params[:content]
+    )
+    redirect_to "/post/show/#{@post.id}"
+  end
+  
 end

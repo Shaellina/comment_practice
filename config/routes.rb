@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :blogs
+  
+  # resources :tweets
+ 
   get 'user/index'
 
   get 'user/new'
@@ -20,6 +24,10 @@ Rails.application.routes.draw do
   get 'post/new'
 
   get 'post/create'
+  
+  get 'post/edit/:id' => 'post#edit'
+  
+  get 'post/update/:id' => 'post#update'
   
   get 'post/show/:id' => 'post#show'
 
